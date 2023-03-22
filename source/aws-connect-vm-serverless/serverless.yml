@@ -211,7 +211,7 @@ functions:
     events:
       - stream:
           type: kinesis
-          arn: !GetAtt Outputs.rConnectKinesisCTR.Arn
+          arn: !Ref CTRStreamArn
           batchWindow: 1
     environment:
       START_SELECTOR_TYPE: FRAGMENT_NUMBER
@@ -265,14 +265,9 @@ resources:
       Type: String
       Default: ${self:custom.config.AMAZON_CONNECT_INSTANCE_ARN, ""}
       Description: The ARN of your Amazon Connect Instance
-    ExistingKinesisKMS:
+    CTRStreamArn:
+      Description: CTR Data Stream ARN
       Type: String
-      Default: "KMS ID"
-      Description: The ARN of your Amazon Connect Kinesis KMS Key
-    ExistingKinesisCTR:
-      Type: String
-      Default: "Kinesis CTR ARN"
-      Description: The ARN of the Kinesis CTR used with Amazon Connect
     DeliveryEmail:
       Description: Transcription delivery email. Make sure this email is verified
       Default: ${self:custom.config.DELIVERY_EMAIL, ""}
@@ -461,9 +456,7 @@ resources:
     #     ShardCount: !Ref DataStreamShardCount
     #     StreamEncryption:
     #       EncryptionType: KMS
-    #       KeyId: !GetAtt Outputs.rKMSKey
-    #     StreamModeDetails:
-    #       StreamMode: ON_DEMAND
+    #       KeyId: alias/aws/kinesis
 
     # Bucket
     AudioRecordingsBucket:
@@ -979,7 +972,7 @@ resources:
                     - kinesis:GetShardIterator
                     - kinesis:DescribeStream
                     - kinesis:ListStreams
-                  Resource: !GetAtt DataStream.Arn
+                  Resource: !Ref CTRStreamArn
                 - Effect: Allow
                   Action:
                     - dynamodb:PutItem
