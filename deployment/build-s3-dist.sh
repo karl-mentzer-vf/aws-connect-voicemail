@@ -87,7 +87,7 @@ npm install redux
 npm install react-redux
 npm install redux-thunk
 #npm install @material-ui/core/styles
-bash build.sh build --stage prod --region us-east-1 --bucket %%BUCKET_NAME%%
+bash build.sh build --stage prod --region ap-southeast-2 --bucket %%BUCKET_NAME%%
 # Copy packaged Lambda function to $build_dist_dir
 mkdir $build_dist_dir/aws-connect-vm-serverless
 mkdir $build_dist_dir/aws-connect-vm-portal
