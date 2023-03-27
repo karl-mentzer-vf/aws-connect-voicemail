@@ -79,6 +79,7 @@ Parameters:
       Type: String
     KMSKeyArn:
       Description: Kinesis CTR Stream KMS Key ARN
+      Type: String
 
 Metadata:
     AWS::CloudFormation::Interface:
@@ -89,6 +90,8 @@ Metadata:
             - AmazonConnectInstanceId
             - RecordingsUrlExpirationTime
             - IsSamlInstance
+            - CTRStreamArn
+            - KMSKeyArn
         - Label:
             default: Voicemail Web Portal Configurations
           Parameters:
@@ -123,6 +126,10 @@ Metadata:
           default: Allowable SMS Countries
         IsSamlInstance:
           default: Is Saml Instance
+        CTRStreamArn
+          default: Current Kinesis CTR Stream ARN
+        KMSKeyArn
+          default: Current Kinesis CTR Stream KMS Key
  
 Mappings:
   MetricsMap:
