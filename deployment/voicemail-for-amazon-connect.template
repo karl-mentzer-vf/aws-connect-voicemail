@@ -128,7 +128,7 @@ Metadata:
           default: Is Saml Instance
         CTRStreamArn
           default: Current Kinesis CTR Stream ARN
-        KMSKeyArn
+        KMSKeyArn:
           default: Current Kinesis CTR Stream KMS Key
  
 Mappings:
