@@ -61,7 +61,6 @@ Parameters:
       Default: ""
       Type: String
       Description: Transcription delivery email. Make sure this email is verified by Amazon Simple Email Service
- 
     RecordingsUrlExpirationTime:
       Default: 900
       Type: String
@@ -71,12 +70,16 @@ Parameters:
       Default: false
       Type: String
       AllowedValues: [true, false]
- 
     UserPoolDomainPrefix:
       Type: String
       Description: Domain prefix to assign to the cognito user pool. This must be unique.
       AllowedPattern: ^[a-z0-9](?:[a-z0-9\\-]{0,61}[a-z0-9])?$
- 
+    CTRStreamArn:
+      Description: CTR Data Stream ARN
+      Type: String
+    KMSKeyArn:
+      Description: Kinesis CTR Stream KMS Key ARN
+
 Metadata:
     AWS::CloudFormation::Interface:
       ParameterGroups:
@@ -128,8 +131,8 @@ Mappings:
  
   SourceCode:
     General:
-      S3Bucket: "%%BUCKET_NAME%%"
-      KeyPrefix: "%%SOLUTION_NAME%%/%%VERSION%%"
+      S3Bucket: "vf-vmail"
+      KeyPrefix: "vf-vmail/1.0.0"
       SolutionId: "SO0094"
      
 Resources:
@@ -137,7 +140,7 @@ Resources:
       Type: AWS::CloudFormation::Stack
       Properties:
         TemplateURL: !Sub [
-            "https://${x0}-reference.s3.amazonaws.com/${x1}/copy-artifacts.template", {
+            "https://${x0}-ap-southeast-2.s3.amazonaws.com/${x1}/copy-artifacts.template", {
                 x0: !FindInMap [
                     "SourceCode",
                     "General",
@@ -176,7 +179,7 @@ Resources:
       DependsOn: CopyLambdaArtifactsStack
       Properties:
         TemplateURL: !Sub [
-            "https://${x0}-reference.s3.amazonaws.com/${x1}/aws-connect-vm.template", {
+            "https://${x0}-ap-southeast-2.s3.amazonaws.com/${x1}/aws-connect-vm.template", {
                 x0: !FindInMap [
                     "SourceCode",
                     "General",
@@ -197,6 +200,8 @@ Resources:
           AvailableSMSCountries: !Ref AvailableSMSCountries
           AdminEmail: !Ref AdminEmail
           AdminFirstName: !Ref AdminFirstName
+          CTRStreamArn: !Ref CTRStreamArn
+          KMSKeyArn: !Ref KMSKeyArn
           AdminLastName: !Ref AdminLastName
           ManagerEmail: !Ref ManagerEmail
           ManagerFirstName: !Ref ManagerFirstName
@@ -222,7 +227,7 @@ Resources:
       DependsOn: VoicemailStack
       Properties:
         TemplateURL: !Sub [
-            "https://${x0}-reference.s3.amazonaws.com/${x1}/cloudfront.template", {
+            "https://${x0}-ap-southeast-2.s3.amazonaws.com/${x1}/cloudfront.template", {
                 x0: !FindInMap [
                     "SourceCode",
                     "General",
