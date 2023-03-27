@@ -1633,7 +1633,7 @@
         "Type": "TOKEN"
       }
     }, 
-    "ApiGatewayDeployment1679876317400": {
+    "ApiGatewayDeployment1679901973657": {
       "Type": "AWS::ApiGateway::Deployment", 
       "Properties": {
         "RestApiId": {
@@ -2136,7 +2136,7 @@
             "Arn"
           ]
         }, 
-        "UUID": "bb13f6cf-a4bd-49f0-b214-24abebd03151", 
+        "UUID": "d023bbee-3745-4ba1-91df-8446f0877130", 
         "AdminEmail": {
           "Ref": "AdminEmail"
         }, 
@@ -3270,6 +3270,15 @@
                 {
                   "Effect": "Allow", 
                   "Action": [
+                    "kms:Decrypt"
+                  ], 
+                  "Resource": {
+                    "Ref": "KMSKeyArn"
+                  }
+                }, 
+                {
+                  "Effect": "Allow", 
+                  "Action": [
                     "dynamodb:PutItem"
                   ], 
                   "Resource": {
@@ -3575,13 +3584,13 @@
         ]
       }, 
       "DependsOn": [
-        "ApiGatewayDeployment1679876317400"
+        "ApiGatewayDeployment1679901973657"
       ]
     }, 
     "ApiGatewayUsagePlan": {
       "Type": "AWS::ApiGateway::UsagePlan", 
       "DependsOn": [
-        "ApiGatewayDeployment1679876317400"
+        "ApiGatewayDeployment1679901973657"
       ], 
       "Properties": {
         "ApiStages": [
@@ -3719,6 +3728,10 @@
     }, 
     "CTRStreamArn": {
       "Description": "CTR Data Stream ARN", 
+      "Type": "String"
+    }, 
+    "KMSKeyArn": {
+      "Description": "The ARN of your KMS key on the CTR Stream", 
       "Type": "String"
     }, 
     "DeliveryEmail": {
