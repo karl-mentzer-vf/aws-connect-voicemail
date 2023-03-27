@@ -1,0 +1,13 @@
+/home/ec2-user/environment/aws-connect-voicemail/source/aws-connect-vm-serverless/src/main/java/com/amazonaws/kvstream/KVSProcessRecordingLambda.java
+/home/ec2-user/environment/aws-connect-voicemail/source/aws-connect-vm-serverless/src/main/java/com/amazonaws/audio/AudioUtils.java
+/home/ec2-user/environment/aws-connect-voicemail/source/aws-connect-vm-serverless/src/main/java/com/amazonaws/kvstream/KVSUtils.java
+/home/ec2-user/environment/aws-connect-voicemail/source/aws-connect-vm-serverless/src/main/java/com/amazonaws/awsconnect/model/CustomerEndpoint.java
+/home/ec2-user/environment/aws-connect-voicemail/source/aws-connect-vm-serverless/src/main/java/com/amazonaws/audio/AudioStreamService.java
+/home/ec2-user/environment/aws-connect-voicemail/source/aws-connect-vm-serverless/src/main/java/com/amazonaws/kvstream/ContactVoicemailRepo.java
+/home/ec2-user/environment/aws-connect-voicemail/source/aws-connect-vm-serverless/src/main/java/com/amazonaws/kvstream/S3UploadInfo.java
+/home/ec2-user/environment/aws-connect-voicemail/source/aws-connect-vm-serverless/src/main/java/com/amazonaws/transcribe/TranscribeService.java
+/home/ec2-user/environment/aws-connect-voicemail/source/aws-connect-vm-serverless/src/main/java/com/amazonaws/helper/MetricsUtil.java
+/home/ec2-user/environment/aws-connect-voicemail/source/aws-connect-vm-serverless/src/main/java/com/amazonaws/helper/ParameterStringBuilder.java
+/home/ec2-user/environment/aws-connect-voicemail/source/aws-connect-vm-serverless/src/main/java/com/amazonaws/awsconnect/model/KVStreamRecordingData.java
+/home/ec2-user/environment/aws-connect-voicemail/source/aws-connect-vm-serverless/src/main/java/com/amazonaws/awsconnect/model/ContactFlowAttributes.java
+/home/ec2-user/environment/aws-connect-voicemail/source/aws-connect-vm-serverless/src/main/java/com/amazonaws/awsconnect/model/ContactTraceRecord.java
