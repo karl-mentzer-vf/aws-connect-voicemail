@@ -126,7 +126,7 @@ Metadata:
           default: Allowable SMS Countries
         IsSamlInstance:
           default: Is Saml Instance
-        CTRStreamArn
+        CTRStreamArn:
           default: Current Kinesis CTR Stream ARN
         KMSKeyArn:
           default: Current Kinesis CTR Stream KMS Key
@@ -139,7 +139,7 @@ Mappings:
   SourceCode:
     General:
       S3Bucket: "vf-vmail"
-      KeyPrefix: "vf-vmail/1.0.0"
+      KeyPrefix: "vf-vmail/1.1.0"
       SolutionId: "SO0094"
      
 Resources:
