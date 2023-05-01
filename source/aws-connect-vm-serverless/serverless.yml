@@ -257,7 +257,6 @@ functions:
       UUID: !Ref Uuid
       SEND_ANON_DATA: !Ref SendAnonymousData
 
-resources:
   Description: Amazon Connect Voicemail Stack
 
   Parameters:
@@ -297,11 +296,9 @@ resources:
     SignedRecordingUrlExpiration:
       Default: ${self:custom.config.SIGNED_RECORDING_URL_EXP, "900"}
       Type: String
-
     UserPoolDomainName:
       Default: ${self:custom.config.USER_POOL_DOMAIN, ""}
       Type: String
-
     SolutionId:
       Default: ${self:custom.config.SOLUTION_ID, ""}
       Type: String
@@ -318,6 +315,12 @@ resources:
       Default: false
       Type: String
       AllowedValues: [true, false]
+    CTRStreamArn:
+      Description: CTR Data Stream ARN
+      Type: String
+    KMSKeyArn:
+      Description: Kinesis CTR Stream KMS Key ARN
+      Type: String
 
   Resources:
     # Cognito
@@ -454,8 +457,8 @@ resources:
       Properties:
         AccessControl: LogDeliveryWrite
         OwnershipControls:
-  		    Rules:
-    			  - ObjectOwnership: BucketOwnerPreferred
+          Rules:
+            - ObjectOwnership: BucketOwnerPreferred
         VersioningConfiguration:
           Status: Enabled
         PublicAccessBlockConfiguration:
