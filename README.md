@@ -1,9 +1,6 @@
 # Voicemail for Amazon Connect
 This solutions deploys the resources necessary to configure a voicemail system to use with Amazon Connect. See [Solution Architecture](https://aws.amazon.com/solutions/implementations/voicemail-for-amazon-connect/).
 
-## Development Branch
-We have added a new branch to this solution: the "development" branch. The "development" branch contains the same solution, but has a simplified build system that removes complexities introduced by the AWS Solution. If you would like to pull down this code to modify it for your own testing, you should use the "development" branch. The "development" branch is where we will accept PRs and continue to build out the Voicemail solution with more functionality based on feedback from users. We will update the "master" branch with changes from the "development" branch twice a year.
-
 ## Running unit tests for customization
 * Clone the repository, then make the desired code changes
 * Install jest
@@ -19,11 +16,11 @@ npm run test
 ## Building distributable for customization
 * Configure the bucket name of your target Amazon S3 distribution bucket
 ```
-export DIST_OUTPUT_BUCKET=my-bucket-name # bucket where customized code will reside
-export SOLUTION_NAME=my-solution-name
-export VERSION=my-version # version number for the customized code
+export DIST_OUTPUT_BUCKET=vf-vmail # bucket where customized code resides in the vf-saas-infra account
+export SOLUTION_NAME=vf-vmail
+export VERSION=1.0.0 # version number for the customized code
 ```
-_Note:_ You would have to create an S3 bucket with the name 'my-bucket-name-<aws_region>'; aws_region is where you are testing the customized solution. Also, the assets in bucket should be accessible from the accounts you will run the CloudFormation stack.
+_Note:_ We have created am S3 bucket with the name 'vf-vmail-ap-southeast-2'; The assets in bucket are accessible from the accounts you will run the CloudFormation stack currently as this is public but will change to be whitelisted accounts only.
 
 * The build script requires Maven and npm; please ensure you have both of these installed in your environment.
 * Now build the distributable:

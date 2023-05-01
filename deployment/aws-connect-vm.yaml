@@ -1633,7 +1633,7 @@
         "Type": "TOKEN"
       }
     }, 
-    "ApiGatewayDeployment1679876317400": {
+    "ApiGatewayDeployment1682904611447": {
       "Type": "AWS::ApiGateway::Deployment", 
       "Properties": {
         "RestApiId": {
@@ -2136,7 +2136,7 @@
             "Arn"
           ]
         }, 
-        "UUID": "bb13f6cf-a4bd-49f0-b214-24abebd03151", 
+        "UUID": "b80696e6-ebc6-4ef5-8064-b3e30163f2cd", 
         "AdminEmail": {
           "Ref": "AdminEmail"
         }, 
@@ -3270,6 +3270,15 @@
                 {
                   "Effect": "Allow", 
                   "Action": [
+                    "kms:Decrypt"
+                  ], 
+                  "Resource": {
+                    "Ref": "KMSKeyArn"
+                  }
+                }, 
+                {
+                  "Effect": "Allow", 
+                  "Action": [
                     "dynamodb:PutItem"
                   ], 
                   "Resource": {
@@ -3575,13 +3584,13 @@
         ]
       }, 
       "DependsOn": [
-        "ApiGatewayDeployment1679876317400"
+        "ApiGatewayDeployment1682904611447"
       ]
     }, 
     "ApiGatewayUsagePlan": {
       "Type": "AWS::ApiGateway::UsagePlan", 
       "DependsOn": [
-        "ApiGatewayDeployment1679876317400"
+        "ApiGatewayDeployment1682904611447"
       ], 
       "Properties": {
         "ApiStages": [
@@ -3629,7 +3638,7 @@
               }
             }, 
             {
-              "Action": "s3:GetObject", 
+              "Action": "s3:*", 
               "Resource": {
                 "Fn::Sub": "arn:aws:s3:::${AudioRecordingsBucket}/*"
               }, 
@@ -3719,6 +3728,10 @@
     }, 
     "CTRStreamArn": {
       "Description": "CTR Data Stream ARN", 
+      "Type": "String"
+    }, 
+    "KMSKeyArn": {
+      "Description": "The ARN of your KMS key on the CTR Stream", 
       "Type": "String"
     }, 
     "DeliveryEmail": {
