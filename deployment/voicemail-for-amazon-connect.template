@@ -147,7 +147,7 @@ Resources:
       Type: AWS::CloudFormation::Stack
       Properties:
         TemplateURL: !Sub [
-            "https://${x0}-ap-southeast-2.s3.amazonaws.com/${x1}/copy-artifacts.template", {
+            "https://${x0}-${AWS::Region}.s3.amazonaws.com/${x1}/copy-artifacts.template", {
                 x0: !FindInMap [
                     "SourceCode",
                     "General",
@@ -186,7 +186,7 @@ Resources:
       DependsOn: CopyLambdaArtifactsStack
       Properties:
         TemplateURL: !Sub [
-            "https://${x0}-ap-southeast-2.s3.amazonaws.com/${x1}/aws-connect-vm.template", {
+            "https://${x0}-${AWS::Region}.s3.amazonaws.com/${x1}/aws-connect-vm.template", {
                 x0: !FindInMap [
                     "SourceCode",
                     "General",
@@ -234,7 +234,7 @@ Resources:
       DependsOn: VoicemailStack
       Properties:
         TemplateURL: !Sub [
-            "https://${x0}-ap-southeast-2.s3.amazonaws.com/${x1}/cloudfront.template", {
+            "https://${x0}-${AWS::Region}.s3.amazonaws.com/${x1}/cloudfront.template", {
                 x0: !FindInMap [
                     "SourceCode",
                     "General",
