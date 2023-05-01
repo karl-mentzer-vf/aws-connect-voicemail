@@ -183,7 +183,6 @@ Resources:
           Nonce: "1"
     VoicemailStack:
       Type: AWS::CloudFormation::Stack
-      DependsOn: CopyLambdaArtifactsStack
       Properties:
         TemplateURL: !Sub [
             "https://${x0}-${AWS::Region}.s3.amazonaws.com/${x1}/aws-connect-vm.template", {
@@ -231,7 +230,6 @@ Resources:
                             ]
     VoicemailPortalStack:
       Type: AWS::CloudFormation::Stack
-      DependsOn: VoicemailStack
       Properties:
         TemplateURL: !Sub [
             "https://${x0}-${AWS::Region}.s3.amazonaws.com/${x1}/cloudfront.template", {
@@ -276,6 +274,7 @@ Resources:
                       "KeyPrefix"
                   ]
               }
+          ]
           UserPoolId: !GetAtt VoicemailStack.Outputs.UserPoolId
           CognitoDomain: !GetAtt VoicemailStack.Outputs.CognitoDomain
           UserPoolArn: !GetAtt VoicemailStack.Outputs.UserPoolArn
