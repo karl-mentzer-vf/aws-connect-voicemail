@@ -276,7 +276,6 @@ Resources:
                       "KeyPrefix"
                   ]
               }
-          ]
           UserPoolId: !GetAtt VoicemailStack.Outputs.UserPoolId
           CognitoDomain: !GetAtt VoicemailStack.Outputs.CognitoDomain
           UserPoolArn: !GetAtt VoicemailStack.Outputs.UserPoolArn
@@ -288,6 +287,10 @@ Resources:
     PortalBucket:
       Type: AWS::S3::Bucket
       Properties:
+        AccessControl: "LogDeliveryWrite"
+        OwnershipControls:
+          Rules:
+            - ObjectOwnership: BucketOwnerPreferred
         PublicAccessBlockConfiguration:
           BlockPublicAcls: True
           BlockPublicPolicy: True
@@ -330,6 +333,9 @@ Resources:
       Type: AWS::S3::Bucket
       Properties:
         AccessControl: "LogDeliveryWrite"
+        OwnershipControls:
+          Rules:
+            - ObjectOwnership: BucketOwnerPreferred
         PublicAccessBlockConfiguration:
           BlockPublicAcls: True
           BlockPublicPolicy: True
