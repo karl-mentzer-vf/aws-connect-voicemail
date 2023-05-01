@@ -1,4 +1,4 @@
-{
+  {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "Amazon Connect Voicemail Stack",
   "Resources": {
@@ -3622,7 +3622,7 @@
             {
               "Effect": "Deny",
               "Principal": "*",
-              "Action": "s3:GetObject",
+              "Action": "s3:*",
               "Resource": {
                 "Fn::Sub": "arn:aws:s3:::${AudioRecordingsBucket}/*"
               },
