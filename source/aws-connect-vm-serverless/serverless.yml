@@ -315,9 +315,6 @@ functions:
       Default: false
       Type: String
       AllowedValues: [true, false]
-    CTRStreamArn:
-      Description: CTR Data Stream ARN
-      Type: String
     KMSKeyArn:
       Description: Kinesis CTR Stream KMS Key ARN
       Type: String
