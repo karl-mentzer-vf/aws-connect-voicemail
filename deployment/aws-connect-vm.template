@@ -2327,7 +2327,7 @@
         "OwnershipControls":
           { "Rules": [{ "ObjectOwnership": "BucketOwnerPreferred" }] },
         "VersioningConfiguration": {
-          "Status": "Enabled"
+          "Status": "Suspended"
         },
         "PublicAccessBlockConfiguration": {
           "BlockPublicAcls": true,
@@ -2360,6 +2360,16 @@
               "MaxAge": "3000"
             }
           ]
+        },
+        "LifecycleConfiguration": {
+            "Rules": [
+                {
+                    "Id": "Delete call recordings after 8 days",
+                    "Prefix": "recordings/",
+                    "Status": "Enabled",
+                    "ExpirationInDays": 8
+                }
+            ]
         },
         "LoggingConfiguration": {
           "DestinationBucketName": {
@@ -3787,6 +3797,13 @@
       "Type": "String",
       "Default": "",
       "Description": "S3 Object Version of the Lambda Deployment Zip Package"
-    }
+    },
+    "CTRStreamArn":
+        { "Description": "CTR Data Stream ARN", "Type": "String" },
+      "KMSKeyArn":
+        {
+          "Description": "The ARN of your KMS key on the CTR Stream",
+          "Type": "String",
+        },
   }
 }
