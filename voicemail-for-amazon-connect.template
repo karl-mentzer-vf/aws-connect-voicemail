@@ -298,7 +298,7 @@ Resources:
           IgnorePublicAcls: True
           RestrictPublicBuckets: True
         VersioningConfiguration:
-          Status: Enabled
+          Status: Suspended
         WebsiteConfiguration:
           IndexDocument: 'index.html'
           ErrorDocument: 'error.html'
