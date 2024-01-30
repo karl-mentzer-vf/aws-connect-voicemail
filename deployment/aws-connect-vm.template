@@ -1,4 +1,4 @@
-  {
+{
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "Amazon Connect Voicemail Stack",
   "Resources": {
@@ -24,7 +24,7 @@
         },
         "Runtime": "nodejs16.x",
         "Timeout": 30,
-        "Description": "AWS Lambda Function that will be triggered when records are written into the ContactVoicemail Table.\n",
+        "Description": "AWS Lambda Function that will be triggered when records are written into the ContactVoicemail Table. ",
         "Environment": {
           "Variables": {
             "USERS_TABLE_NAME": {
@@ -978,10 +978,12 @@
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true
             },
-            "ResponseModels": {}
+            "ResponseModels": {
+            }
           }
         ],
-        "RequestParameters": {},
+        "RequestParameters": {
+        },
         "Integration": {
           "Type": "MOCK",
           "RequestTemplates": {
@@ -1033,10 +1035,12 @@
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true
             },
-            "ResponseModels": {}
+            "ResponseModels": {
+            }
           }
         ],
-        "RequestParameters": {},
+        "RequestParameters": {
+        },
         "Integration": {
           "Type": "MOCK",
           "RequestTemplates": {
@@ -1088,10 +1092,12 @@
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true
             },
-            "ResponseModels": {}
+            "ResponseModels": {
+            }
           }
         ],
-        "RequestParameters": {},
+        "RequestParameters": {
+        },
         "Integration": {
           "Type": "MOCK",
           "RequestTemplates": {
@@ -1143,10 +1149,12 @@
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true
             },
-            "ResponseModels": {}
+            "ResponseModels": {
+            }
           }
         ],
-        "RequestParameters": {},
+        "RequestParameters": {
+        },
         "Integration": {
           "Type": "MOCK",
           "RequestTemplates": {
@@ -1198,10 +1206,12 @@
               "method.response.header.Access-Control-Allow-Headers": true,
               "method.response.header.Access-Control-Allow-Methods": true
             },
-            "ResponseModels": {}
+            "ResponseModels": {
+            }
           }
         ],
-        "RequestParameters": {},
+        "RequestParameters": {
+        },
         "Integration": {
           "Type": "MOCK",
           "RequestTemplates": {
@@ -1244,7 +1254,8 @@
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "GET",
-        "RequestParameters": {},
+        "RequestParameters": {
+        },
         "ResourceId": {
           "Ref": "ApiGatewayResourceAgents"
         },
@@ -1283,7 +1294,9 @@
             ]
           }
         },
-        "MethodResponses": []
+        "MethodResponses": [
+
+        ]
       },
       "DependsOn": "AuthorizerApiGatewayAuthorizer"
     },
@@ -1291,7 +1304,8 @@
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "POST",
-        "RequestParameters": {},
+        "RequestParameters": {
+        },
         "ResourceId": {
           "Ref": "ApiGatewayResourceAgentsAgentidVar"
         },
@@ -1330,7 +1344,9 @@
             ]
           }
         },
-        "MethodResponses": []
+        "MethodResponses": [
+
+        ]
       },
       "DependsOn": "AuthorizerApiGatewayAuthorizer"
     },
@@ -1338,7 +1354,8 @@
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "GET",
-        "RequestParameters": {},
+        "RequestParameters": {
+        },
         "ResourceId": {
           "Ref": "ApiGatewayResourceAgentsAgentidVar"
         },
@@ -1377,7 +1394,9 @@
             ]
           }
         },
-        "MethodResponses": []
+        "MethodResponses": [
+
+        ]
       },
       "DependsOn": "AuthorizerApiGatewayAuthorizer"
     },
@@ -1385,7 +1404,8 @@
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "POST",
-        "RequestParameters": {},
+        "RequestParameters": {
+        },
         "ResourceId": {
           "Ref": "ApiGatewayResourceGlobalSettings"
         },
@@ -1424,7 +1444,9 @@
             ]
           }
         },
-        "MethodResponses": []
+        "MethodResponses": [
+
+        ]
       },
       "DependsOn": "AuthorizerApiGatewayAuthorizer"
     },
@@ -1432,7 +1454,8 @@
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "GET",
-        "RequestParameters": {},
+        "RequestParameters": {
+        },
         "ResourceId": {
           "Ref": "ApiGatewayResourceGlobalSettings"
         },
@@ -1471,7 +1494,9 @@
             ]
           }
         },
-        "MethodResponses": []
+        "MethodResponses": [
+
+        ]
       },
       "DependsOn": "AuthorizerApiGatewayAuthorizer"
     },
@@ -1479,7 +1504,8 @@
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "POST",
-        "RequestParameters": {},
+        "RequestParameters": {
+        },
         "ResourceId": {
           "Ref": "ApiGatewayResourceContactFlow"
         },
@@ -1518,7 +1544,9 @@
             ]
           }
         },
-        "MethodResponses": []
+        "MethodResponses": [
+
+        ]
       },
       "DependsOn": "AuthorizerApiGatewayAuthorizer"
     },
@@ -1526,7 +1554,8 @@
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "POST",
-        "RequestParameters": {},
+        "RequestParameters": {
+        },
         "ResourceId": {
           "Ref": "ApiGatewayResourceAgentsSync"
         },
@@ -1565,7 +1594,9 @@
             ]
           }
         },
-        "MethodResponses": []
+        "MethodResponses": [
+
+        ]
       },
       "DependsOn": "AuthorizerApiGatewayAuthorizer"
     },
@@ -1679,7 +1710,7 @@
         "Description": "Usage plan for aws-connect-vm prod stage",
         "Throttle": {
           "BurstLimit": 500,
-          "RateLimit": 50.0
+          "RateLimit": 50
         }
       }
     },
@@ -2017,12 +2048,7 @@
       "DependsOn": "KvsProcessRecordingIamRole",
       "Properties": {
         "BatchSize": 10,
-        "EventSourceArn": {
-          "Fn::GetAtt": [
-            "DataStream",
-            "Arn"
-          ]
-        },
+        "EventSourceArn": "CTRStreamArn",
         "FunctionName": {
           "Fn::GetAtt": [
             "KvsProcessRecordingLambdaFunction",
@@ -2144,7 +2170,6 @@
     },
     "AmazonConnectGetAgentLambdaRights": {
       "Type": "AWS::Lambda::Permission",
-      "Description": "Allows amazon connect to invoke the GetAgentByExtension lambda",
       "Properties": {
         "FunctionName": {
           "Ref": "GetAgentByExtensionLambdaFunction"
@@ -2305,27 +2330,17 @@
         ]
       }
     },
-    "DataStream": {
-      "Type": "AWS::Kinesis::Stream",
-      "Properties": {
-        "RetentionPeriodHours": {
-          "Ref": "DataStreamRetention"
-        },
-        "ShardCount": {
-          "Ref": "DataStreamShardCount"
-        },
-        "StreamEncryption": {
-          "EncryptionType": "KMS",
-          "KeyId": "alias/aws/kinesis"
-        }
-      }
-    },
     "AudioRecordingsBucket": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
         "AccessControl": "LogDeliveryWrite",
-        "OwnershipControls":
-          { "Rules": [{ "ObjectOwnership": "BucketOwnerPreferred" }] },
+        "OwnershipControls": {
+          "Rules": [
+            {
+              "ObjectOwnership": "BucketOwnerPreferred"
+            }
+          ]
+        },
         "VersioningConfiguration": {
           "Status": "Suspended"
         },
@@ -2362,14 +2377,14 @@
           ]
         },
         "LifecycleConfiguration": {
-            "Rules": [
-                {
-                    "Id": "Delete call recordings after 8 days",
-                    "Prefix": "recordings/",
-                    "Status": "Enabled",
-                    "ExpirationInDays": 8
-                }
-            ]
+          "Rules": [
+            {
+              "Id": "Delete call recordings after 8 days",
+              "Prefix": "recordings/",
+              "Status": "Enabled",
+              "ExpirationInDays": 8
+            }
+          ]
         },
         "LoggingConfiguration": {
           "DestinationBucketName": {
@@ -3310,12 +3325,19 @@
                     "kinesis:DescribeStream",
                     "kinesis:ListStreams"
                   ],
-                  "Resource": {
-                    "Fn::GetAtt": [
-                      "DataStream",
-                      "Arn"
-                    ]
-                  }
+                  "Resource": [
+                    "Ref": "CTRStreamArn"
+                  ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "kms:Decrypt",
+                    "kms:GenerateDataKey"
+                  ],
+                  "Resource": [
+                    "Ref": "KMSKeyArn"
+                  ]
                 },
                 {
                   "Effect": "Allow",
@@ -3605,7 +3627,7 @@
           "rules_to_suppress": [
             {
               "id": "W77",
-              "reason": "Uses the account's default AWS managed CMK for Secrets Manager\u00b7"
+              "reason": "Uses the account's default AWS managed CMK for Secrets Manager·"
             }
           ]
         }
@@ -3708,16 +3730,6 @@
       "Default": "",
       "Description": "The ARN of your Amazon Connect Instance"
     },
-    "DataStreamRetention": {
-      "Description": "Data Stream Retention in Hours",
-      "Default": 24,
-      "Type": "Number"
-    },
-    "DataStreamShardCount": {
-      "Description": "Number of shards for the Data Stream",
-      "Default": 1,
-      "Type": "Number"
-    },
     "DeliveryEmail": {
       "Description": "Transcription delivery email. Make sure this email is verified",
       "Default": "",
@@ -3798,13 +3810,15 @@
       "Default": "",
       "Description": "S3 Object Version of the Lambda Deployment Zip Package"
     },
-    "CTRStreamArn": { 
-      "Description": "CTR Data Stream ARN", 
-      "Type": "String" 
+    "CTRStreamArn": {
+      "Description": "CTR Data Stream ARN",
+      "Type": "String",
+      "Default": ""
     },
-    "KMSKeyArn": { 
-    "Description": "The ARN of your KMS key on the CTR Stream",
-    "Type": "String"
+    "KMSKeyArn": {
+      "Description": "The ARN of your KMS key on the CTR Stream",
+      "Type": "String",
+      "Default": ""
     }
   }
 }
