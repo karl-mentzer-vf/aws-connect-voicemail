@@ -3798,12 +3798,13 @@
       "Default": "",
       "Description": "S3 Object Version of the Lambda Deployment Zip Package"
     },
-    "CTRStreamArn":
-        { "Description": "CTR Data Stream ARN", "Type": "String" },
-      "KMSKeyArn":
-        {
-          "Description": "The ARN of your KMS key on the CTR Stream",
-          "Type": "String",
-        },
+    "CTRStreamArn": { 
+      "Description": "CTR Data Stream ARN", 
+      "Type": "String" 
+    },
+    "KMSKeyArn": { 
+    "Description": "The ARN of your KMS key on the CTR Stream",
+    "Type": "String"
+    }
   }
 }
