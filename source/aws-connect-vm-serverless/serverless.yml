@@ -267,6 +267,7 @@ functions:
     CTRStreamArn:
       Description: CTR Data Stream ARN
       Type: String
+      Default: ${self:custom.config.CTRStreamArn, ""}
     DeliveryEmail:
       Description: Transcription delivery email. Make sure this email is verified
       Default: ${self:custom.config.DELIVERY_EMAIL, ""}
@@ -274,7 +275,6 @@ functions:
     AvailableSMSCountries:
       Default: ${self:custom.config.AVAILABLE_SMS_COUNTRIES, "us"}
       Type: String
-
     AdminEmail:
       Default: ${self:custom.config.ADMIN_EMAIL, ""}
       Type: String
@@ -318,7 +318,7 @@ functions:
     KMSKeyArn:
       Description: Kinesis CTR Stream KMS Key ARN
       Type: String
-
+      Default: ${self:custom.config.KMSKeyArn, ""}
   Resources:
     # Cognito
     CognitoUserPoolUserPool:

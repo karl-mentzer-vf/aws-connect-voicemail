@@ -29,7 +29,7 @@ Parameters:
       Description: Your Amazon Connect Instance Id
       AllowedPattern: ^([0-9a-f]){8}-([0-9a-f]){4}-([0-9a-f]){4}-([0-9a-f]){4}-([0-9a-f]){12}$
     AvailableSMSCountries:
-      Default: "us,ca"
+      Default: "us,ca,au"
       Type: String
       Description: List of regions delineated  by commas available for SMS messages when voicemail transcripts are sent.
     AdminEmail:
