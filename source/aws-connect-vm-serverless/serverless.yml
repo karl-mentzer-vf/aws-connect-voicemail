@@ -257,7 +257,7 @@ functions:
       UUID: !Ref Uuid
       SEND_ANON_DATA: !Ref SendAnonymousData
 
-  Description: Amazon Connect Voicemail Stack
+Description: Amazon Connect Voicemail Stack
 
   Parameters:
     AmazonConnectInstanceArn:
