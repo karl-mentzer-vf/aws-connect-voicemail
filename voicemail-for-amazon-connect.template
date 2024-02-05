@@ -139,7 +139,7 @@ Mappings:
   SourceCode:
     General:
       S3Bucket: "vf-vmail"
-      KeyPrefix: "vf-vmail/1.2.0"
+      KeyPrefix: "vf-vmail/1.3.0"
       SolutionId: "SO0094"
      
 Resources:
