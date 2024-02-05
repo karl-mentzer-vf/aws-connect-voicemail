@@ -257,6 +257,7 @@ functions:
       UUID: !Ref Uuid
       SEND_ANON_DATA: !Ref SendAnonymousData
 
+resources:
   Description: Amazon Connect Voicemail Stack
 
   Parameters:
@@ -264,6 +265,14 @@ functions:
       Type: String
       Default: ${self:custom.config.AMAZON_CONNECT_INSTANCE_ARN, ""}
       Description: The ARN of your Amazon Connect Instance
+    # DataStreamRetention:
+    #   Description: Data Stream Retention in Hours
+    #   Default: 24
+    #   Type: Number
+    # DataStreamShardCount:
+    #   Description: Number of shards for the Data Stream
+    #   Default: 1
+    #   Type: Number
     CTRStreamArn:
       Description: CTR Data Stream ARN
       Type: String
@@ -448,16 +457,26 @@ functions:
             Projection:
               ProjectionType: ALL
 
+    # # Kinesis
+    # DataStream:
+    #   Type: AWS::Kinesis::Stream
+    #   Properties:
+    #     RetentionPeriodHours: !Ref DataStreamRetention
+    #     ShardCount: !Ref DataStreamShardCount
+    #     StreamEncryption:
+    #       EncryptionType: KMS
+    #       KeyId: alias/aws/kinesis
+
     # Bucket
     AudioRecordingsBucket:
       Type: AWS::S3::Bucket
       Properties:
         AccessControl: LogDeliveryWrite
+        VersioningConfiguration:
+          Status: Suspended
         OwnershipControls:
           Rules:
             - ObjectOwnership: BucketOwnerPreferred
-        VersioningConfiguration:
-          Status: Suspended
         PublicAccessBlockConfiguration:
           BlockPublicAcls: True
           BlockPublicPolicy: True
@@ -486,7 +505,6 @@ functions:
                 Prefix: recordings/
                 Status: Enabled
                 ExpirationInDays: 8
-
     # Log Group
     ApiAccessLogGroup:
       Type: AWS::Logs::LogGroup
