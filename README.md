@@ -16,9 +16,9 @@ npm run test
 ## Building distributable for customization
 * Configure the bucket name of your target Amazon S3 distribution bucket
 ```
-export DIST_OUTPUT_BUCKET=vf-vmail # bucket where customized code resides in the vf-saas-infra account
+export DIST_OUTPUT_BUCKET=vf-vmail-<REGION> # bucket where customized code resides in the vf-saas-infra account
 export SOLUTION_NAME=vf-vmail
-export VERSION=1.0.0 # version number for the customized code
+export VERSION=1.3.0 # version number for the customized code
 ```
 _Note:_ We have created am S3 bucket with the name 'vf-vmail-ap-southeast-2'; The assets in bucket are accessible from the accounts you will run the CloudFormation stack currently as this is public but will change to be whitelisted accounts only.
 
@@ -32,8 +32,8 @@ chmod +x ./build-s3-dist.sh
 
 * Deploy the distributable to an Amazon S3 bucket in your account. _Note:_ you must have the AWS Command Line Interface installed.
 ```
-aws s3 cp ./regional-s3-assets  s3://$DIST_OUTPUT_BUCKET-<aws_region>/$SOLUTION_NAME/$VERSION/ --recursive --acl bucket-owner-full-control --profile <aws-cred-profile-name>
-aws s3 cp ./global-s3-assets  s3://$DIST_OUTPUT_BUCKET-<aws_region>/$SOLUTION_NAME/$VERSION/ --recursive --acl bucket-owner-full-control --profile <aws-cred-profile-name>
+aws s3 cp ./regional-s3-assets  s3://$DIST_OUTPUT_BUCKET/$SOLUTION_NAME/$VERSION/ --recursive
+aws s3 cp ./global-s3-assets  s3://$DIST_OUTPUT_BUCKET/$SOLUTION_NAME/$VERSION/ --recursive
 ```
 
 * Get the link of the solution template uploaded to your Amazon S3 bucket.
